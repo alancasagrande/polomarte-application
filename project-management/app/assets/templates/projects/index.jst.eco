@@ -7,6 +7,9 @@
 
 <ul class="list">
 	<% for project in @projects.models: %>
-		<li><%= project.get("name") %></li>
+		<li>
+			<%= project.get("name") %>
+			<a><i class="icon-remove"></i></a>
+		</li>		
 	<% end %>
 <ul>

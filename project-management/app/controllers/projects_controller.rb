@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    respond_with Project.create(params[:id])
+    respond_with Project.create(name: params[:name])
   end
   
   def update
