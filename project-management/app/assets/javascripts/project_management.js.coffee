@@ -1,13 +1,8 @@
 window.ProjectManagement =
-  Models: {}
-  Collections: {}
-  Views: {}
-  Routers: {}
-  
   initialize: ->
-    new ProjectManagement.Routers.Projects
+    new ProjectManagement.ProjectsRouter
     Backbone.history.start()
-    
+
   show: (view) -> 
     if @currentView
       @currentView.remove()
@@ -18,5 +13,5 @@ window.ProjectManagement =
         
     $("#container").html(@currentView.el)
 
-$(document).ready ->
+$ ->
   ProjectManagement.initialize()

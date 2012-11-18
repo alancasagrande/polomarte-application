@@ -1,6 +1,7 @@
 ProjectManagement::Application.routes.draw do
   scope "api" do
     resources :projects
+    resources :tasks
   end
 
   root :to => "main#index"

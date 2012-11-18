@@ -1,0 +1,4 @@
+<%= @task.get("name") %>
+<a class="remove-task">
+	<i class="icon-remove"></i>
+</a>

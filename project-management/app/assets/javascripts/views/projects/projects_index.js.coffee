@@ -1,31 +1,43 @@
-class ProjectManagement.Views.ProjectsIndex extends Backbone.View
+class ProjectManagement.ProjectsIndexView extends Backbone.View
   template: JST['projects/index']
   
   events: ->
-    "submit #new-project": "create"
+    "submit #new-project": "createProject"
   
   initialize: ->
     @collection.on("reset", @render, this)
-    @collection.on("add", @append, this)
+    @collection.on("add", @appendProject, this)
+  
+  remove: ->
+    super()
+    @collection.off("reset", @render)
+    @collection.off("add", @appendProject)
   
   render: ->
     $(@el).html(@template())
-    @collection.each(@append, this)
+    @collection.each(@appendProject, this)
     this
     
-  append: (project) ->
-    projectView = new ProjectManagement.Views.Project(model: project).render()
-    projectView.on("remove", @remove, this)
+  appendProject: (project) ->
+    projectView = new ProjectManagement.ProjectView(model: project).render()
+    projectView.on("remove", @removeProject, this)
     $("#projects").append(projectView.el)
 
-  create: (event) ->
+  createProject: (event) ->
     event.preventDefault()
-    @collection.create(name: $("#project-name").val())
+    attributes = name: $("#project-name").val()
+    @collection.create attributes, 
+      wait: true
+      success: @handleSuccess
+      error: @handleError
+      
+  handleSuccess: ->
     $("#project-name").val("")
+    $("#project-error").hide()
     
-  remove: (projectView) ->
-    @collection.remove(projectView.model)
-    projectView.model.destroy()
+  handleError: (project) ->
+    $("#project-error").fadeIn()
     
-    
+  removeProject: (project) ->
+    project.destroy()
     

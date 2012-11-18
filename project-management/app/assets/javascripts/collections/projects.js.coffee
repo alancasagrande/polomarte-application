@@ -1,3 +1,3 @@
-class ProjectManagement.Collections.Projects extends Backbone.Collection
+class ProjectManagement.Projects extends Backbone.Collection
   url: "/api/projects"
-  model: ProjectManagement.Models.Project
+  model: ProjectManagement.Project

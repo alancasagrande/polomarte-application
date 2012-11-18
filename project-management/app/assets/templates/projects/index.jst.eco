@@ -1,7 +1,11 @@
 <h1>Project Management</h1>
 
+<div id="project-error" class="alert alert-error" style="display: none">
+	There is a problem with your request. Please check if all fields were filled properly.
+</div>
+
 <form id="new-project" class="new-record">
-	<input id="project-name" type="text" placeholder="Name" />
+	<input id="project-name" type="text" placeholder="Project name" />
 	<input type="submit" class="btn btn-success" value="Create" />
 </form>
 

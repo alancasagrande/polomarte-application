@@ -1,0 +1,14 @@
+<h1><%= @project.get("name") %></h1>
+
+<div id="task-error" class="alert alert-error" style="display: none">
+	There is a problem with your request. Please check if all fields were filled properly.
+</div>
+
+<form id="new-task" class="new-record">
+	<input id="task-name" type="text" placeholder="Task name" />
+	<input type="submit" class="btn btn-success" value="Create" />
+	<a href="/#projects" class="btn">Back to Projects</a>
+</form>
+
+<ul id="tasks" class="list">
+<ul>

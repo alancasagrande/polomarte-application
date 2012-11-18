@@ -7,7 +7,11 @@ $stronger-blue: rgb(168, 188, 215);
 $white: rgb(255, 255, 255);
 
 h1 {
-  text-align: center
+  text-align: center;
+}
+
+form {
+  margin: 0;
 }
 
 .container {
@@ -33,9 +37,19 @@ h1 {
   }
 }
 
+#new-task {
+  a {
+    float: right;
+  }
+}
+
 .new-record {
   input[type="text"] {
     margin: 0;
     width: 300px;
   }
+}
+
+.alert {
+  margin-bottom: 10px;
 }

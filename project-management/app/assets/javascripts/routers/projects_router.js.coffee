@@ -1,13 +1,22 @@
-class ProjectManagement.Routers.Projects extends Backbone.Router
+class ProjectManagement.ProjectsRouter extends Backbone.Router
   routes:
     "": "index"
-    "/project/:id": "show"
+    "projects": "index"
+    "projects/:id": "show"
     
   initialize: ->
-    @collection = new ProjectManagement.Collections.Projects
+    @collection = new ProjectManagement.Projects
+    
+  index: ->    
+    window.ProjectManagement.show(new ProjectManagement.ProjectsIndexView(collection: @collection))
     @collection.fetch()
     
-  index: ->
-    window.ProjectManagement.show(new ProjectManagement.Views.ProjectsIndex(collection: @collection))
-    
   show: (id) ->
+    model = ProjectManagement.Project.findOrCreate(id: id)
+      
+    model.fetch
+      success: -> window.ProjectManagement.show(new ProjectManagement.ProjectShowView(model: model))
+      error: ->
+        alert("Project does not exist.")
+        Backbone.history.navigate("projects", true)
+        

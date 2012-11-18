@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    respond_with Project.find(params[:id])
+    respond_with Project.find(params[:id]), :include => :tasks
   end
   
   def create
