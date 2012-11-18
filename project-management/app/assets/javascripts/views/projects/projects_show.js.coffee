@@ -1,4 +1,4 @@
-class ProjectManagement.ProjectShowView extends Backbone.View
+class ProjectManagement.ProjectsShowView extends Backbone.View
   template: JST['projects/show']
   
   events: ->
@@ -28,6 +28,7 @@ class ProjectManagement.ProjectShowView extends Backbone.View
     attributes = 
       project_id: @model.get("id")
       name: $("#task-name").val()
+      done: false
     @model.get("tasks").create attributes, 
       wait: true
       success: @handleSuccess

@@ -9,3 +9,12 @@ class ProjectManagement.Project extends Backbone.RelationalModel
       collectionType: "ProjectManagement.Tasks"
     }
   ]
+  
+  done: ->
+    return false if @get("tasks").length == 0
+    
+    for task in @get("tasks").models
+      return false unless task.get("done")
+      
+    true
+      

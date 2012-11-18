@@ -1,4 +1,8 @@
-<%= @task.get("name") %>
+<input type="checkbox" class="mark-task" <%= "checked" if @task.get("done") %> />
+
+<span class="<%= "done" if @task.get("done") %>">
+	<%= @task.get("name") %>
+</span>
 <a class="remove-task">
 	<i class="icon-remove"></i>
 </a>

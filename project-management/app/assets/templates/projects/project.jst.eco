@@ -1,4 +1,6 @@
-<%= @project.get("name") %>
+<span class="<%= "done" if @project.done() %>">
+	<%= @project.get("name") %>
+</span>
 <a class="remove-project">
 	<i class="icon-remove">
 	</i>

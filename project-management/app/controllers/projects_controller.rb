@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   respond_to :json
   
   def index
-    respond_with Project.all    
+    respond_with Project.all, :include => { :tasks => { :only => [:done] } }
   end
   
   def show
@@ -11,10 +11,6 @@ class ProjectsController < ApplicationController
   
   def create
     respond_with Project.create(name: params[:name])
-  end
-  
-  def update
-    respond_with Project.update(params[:id])
   end
   
   def destroy
