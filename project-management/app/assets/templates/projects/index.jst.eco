@@ -5,11 +5,5 @@
 	<input type="submit" class="btn btn-success" value="Create" />
 </form>
 
-<ul class="list">
-	<% for project in @projects.models: %>
-		<li>
-			<%= project.get("name") %>
-			<a><i class="icon-remove"></i></a>
-		</li>		
-	<% end %>
+<ul id="projects" class="list">
 <ul>

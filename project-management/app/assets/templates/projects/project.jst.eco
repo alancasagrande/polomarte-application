@@ -1,0 +1,5 @@
+<%= @project.get("name") %>
+<a class="remove-project">
+	<i class="icon-remove">
+	</i>
+</a>
