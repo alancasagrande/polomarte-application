@@ -3,7 +3,20 @@ window.ProjectManagement =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  
+  initialize: ->
+    new ProjectManagement.Routers.Projects
+    Backbone.history.start()
+    
+  show: (view) -> 
+    if @currentView
+      @currentView.remove()
+      @currentView.unbind()
+      
+    @currentView = view
+    @currentView.render()
+        
+    $("#container").html(@currentView.el)
 
 $(document).ready ->
   ProjectManagement.initialize()

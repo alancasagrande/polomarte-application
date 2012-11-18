@@ -1,3 +1,37 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blue: rgb(219, 227, 238);
+$stronger-blue: rgb(168, 188, 215);
+$white: rgb(255, 255, 255);
+
+h1 {
+  text-align: center
+}
+
+.container {
+	background-color: $blue;
+	padding: 10px; 
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  li {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: $white;
+    font-size: 18px;
+  }
+  li:hover {
+    background-color: $stronger-blue;
+  }
+}
+
+.new-project {
+  input[type="text"] {
+    margin: 0;
+    width: 300px;
+  }
+}

@@ -1,0 +1,12 @@
+<h1>Project Management</h1>
+
+<form id="new-project" class="new-record">
+	<input id="project-name" type="text" placeholder="Name" />
+	<input type="submit" class="btn btn-success" value="Create" />
+</form>
+
+<ul class="list">
+	<% for project in @projects.models: %>
+		<li><%= project.get("name") %></li>
+	<% end %>
+<ul>
